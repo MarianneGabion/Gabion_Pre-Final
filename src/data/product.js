@@ -1,3 +1,0 @@
-const defaultProducts = {
-    id
-}

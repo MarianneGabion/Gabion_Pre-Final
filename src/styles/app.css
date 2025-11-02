@@ -1,0 +1,263 @@
+/* === GLOBAL === */
+body {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background-color: #f3f6f2;
+  color: #1b3726;
+  margin: 0;
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* === HEADER === */
+.header {
+  background: linear-gradient(90deg, #6ebf73, #4e9b58);
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 3px solid #458a4c;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 25px;
+  font-size: 18px;
+  transition: opacity 0.2s;
+}
+
+.header nav a:hover {
+  opacity: 0.85;
+}
+
+/* === FILTER === */
+.filter {
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.filter select {
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #c9c9c9;
+  outline: none;
+}
+
+/* === GRID LAYOUT (Conference-style) === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+/* === PRODUCT CARD === */
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #e6efe7;
+}
+
+.card h3 {
+  margin: 8px 0;
+  font-size: 20px;
+  color: #18492d;
+}
+
+.card p {
+  margin: 4px 0;
+  font-size: 16px;
+  color: #4d4d4d;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.actions button,
+.actions a {
+  background: #6bbf73;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.actions button:hover,
+.actions a:hover {
+  background: #569a5e;
+}
+
+/* === LOW STOCK === */
+.low-stock {
+  border: 2px solid #f6d8aa;
+  background-color: #fff9ef;
+}
+
+.low-badge {
+  display: inline-block;
+  background: #e57373;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* === FORM === */
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  font-size: 18px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #5baa64;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #4c9855;
+}
+
+/* === TOTALS BAR === */
+.totals {
+  margin-top: 30px;
+  padding: 15px;
+  background: #dff0e0;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #18492d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* === PRODUCT DETAIL === */
+.detail {
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  font-size: 18px;
+}
+
+.detail img {
+  width: 100%;
+  max-height: 350px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 25px;
+}
+
+/* === FRONT PAGE === */
+.front-page {
+  height: 100vh;
+  background: linear-gradient(180deg, #cde9d3 0%, #f7f8f5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #1d3b2a;
+  font-family: "Poppins", sans-serif;
+}
+
+.front-content h1 {
+  font-size: 45px;
+  margin-bottom: 15px;
+  color: #18492d;
+}
+
+.front-content .tagline {
+  font-size: 20px;
+  margin-bottom: 35px;
+  color: #3f6049;
+}
+
+.start-btn {
+  background-color: #6bbf73;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.start-btn:hover {
+  background-color: #569a5e;
+  transform: scale(1.05);
+}

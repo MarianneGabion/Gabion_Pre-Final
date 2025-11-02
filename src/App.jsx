@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import defaultProducts from "./data/products.js";
+import Home from "./pages/Home.jsx";
+import AddProductPage from "./pages/AddProductPage.jsx";
+import ProductDetail from "./components/ProductDetail.jsx";
+import FrontPage from "./pages/FrontPage.jsx";
+import Header from "./components/Header.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [products, setProducts] = useState(() => {
+    const saved = localStorage.getItem("products");
+    return saved ? JSON.parse(saved) : defaultProducts;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        {/* 🏠 New front page route */}
+        <Route path="/" element={<FrontPage />} />
+
+        {/* Product routes */}
+        <Route
+          path="/home"
+          element={<>
+            <Header />
+            <Home products={products} setProducts={setProducts} />
+          </>}
+        />
+        <Route
+          path="/add"
+          element={<>
+            <Header />
+            <AddProductPage products={products} setProducts={setProducts} />
+          </>}
+        />
+        <Route
+          path="/product/:id"
+          element={<>
+            <Header />
+            <ProductDetail products={products} />
+          </>}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
